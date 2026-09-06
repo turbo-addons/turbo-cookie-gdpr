@@ -1,0 +1,625 @@
+/**
+ * Turbo Cookie — Frontend Styles
+ *
+ * @package TurboCookie
+ * @since   1.0.0
+ */
+
+/* ============================================
+   CSS Variables (overridden by inline styles)
+   ============================================ */
+:root {
+	--tc-bg: #1e293b;
+	--tc-text: #f1f5f9;
+	--tc-btn-accept-bg: #3b82f6;
+	--tc-btn-accept-text: #ffffff;
+	--tc-btn-decline-bg: transparent;
+	--tc-btn-decline-text: #94a3b8;
+	--tc-btn-decline-border: #475569;
+	--tc-btn-prefs-bg: transparent;
+	--tc-btn-prefs-text: #94a3b8;
+	--tc-btn-prefs-border: #475569;
+	--tc-radius: 8px;
+	--tc-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+	--tc-z: 999999;
+}
+
+/* ============================================
+   Banner
+   ============================================ */
+.turbo-cookie-banner {
+	position: fixed;
+	z-index: var(--tc-z);
+	background: var(--tc-bg);
+	color: var(--tc-text);
+	box-shadow: var(--tc-shadow);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	box-sizing: border-box;
+}
+
+.turbo-cookie-banner *,
+.turbo-cookie-banner *::before,
+.turbo-cookie-banner *::after {
+	box-sizing: border-box;
+}
+
+/* Positions */
+.turbo-cookie-position-bottom {
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.turbo-cookie-position-top {
+	top: 0;
+	left: 0;
+	right: 0;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.turbo-cookie-position-bottom-left {
+	bottom: 20px;
+	left: 20px;
+	max-width: 420px;
+	border-radius: var(--tc-radius);
+}
+
+.turbo-cookie-position-bottom-right {
+	bottom: 20px;
+	right: 20px;
+	max-width: 420px;
+	border-radius: var(--tc-radius);
+}
+
+.turbo-cookie-position-center {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 520px;
+	width: 90%;
+	border-radius: var(--tc-radius);
+}
+
+/* Banner Inner */
+.turbo-cookie-banner-inner {
+	padding: 20px 24px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+/* Floating/box layout — stack vertically */
+.turbo-cookie-position-bottom-left .turbo-cookie-banner-inner,
+.turbo-cookie-position-bottom-right .turbo-cookie-banner-inner,
+.turbo-cookie-position-center .turbo-cookie-banner-inner,
+.turbo-cookie-layout-box .turbo-cookie-banner-inner {
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.turbo-cookie-banner-logo img {
+	max-height: 32px;
+	width: auto;
+}
+
+.turbo-cookie-banner-content {
+	flex: 1;
+}
+
+.turbo-cookie-banner-title {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0 0 6px;
+	color: inherit;
+}
+
+.turbo-cookie-banner-message {
+	margin: 0;
+	opacity: 0.9;
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.turbo-cookie-policy-link {
+	color: var(--tc-btn-accept-bg);
+	text-decoration: underline;
+	margin-left: 4px;
+}
+
+.turbo-cookie-policy-link:hover {
+	opacity: 0.8;
+}
+
+/* Banner Actions */
+.turbo-cookie-banner-actions {
+	display: flex;
+	gap: 10px;
+	flex-shrink: 0;
+	flex-wrap: wrap;
+}
+
+.turbo-cookie-position-bottom-left .turbo-cookie-banner-actions,
+.turbo-cookie-position-bottom-right .turbo-cookie-banner-actions,
+.turbo-cookie-position-center .turbo-cookie-banner-actions,
+.turbo-cookie-layout-box .turbo-cookie-banner-actions {
+	margin-top: 12px;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.turbo-cookie-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 20px;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+	border: none;
+	transition: opacity 0.2s, transform 0.1s;
+	white-space: nowrap;
+	text-decoration: none;
+	line-height: 1;
+}
+
+.turbo-cookie-btn:hover {
+	opacity: 0.9;
+	transform: translateY(-1px);
+}
+
+.turbo-cookie-btn:active {
+	transform: translateY(0);
+}
+
+.turbo-cookie-btn-accept {
+	background: var(--tc-btn-accept-bg);
+	color: var(--tc-btn-accept-text);
+}
+
+.turbo-cookie-btn-decline {
+	background: var(--tc-btn-decline-bg);
+	color: var(--tc-btn-decline-text);
+	border: 1px solid var(--tc-btn-decline-border);
+}
+
+.turbo-cookie-btn-preferences {
+	background: var(--tc-btn-prefs-bg);
+	color: var(--tc-btn-prefs-text);
+	border: 1px solid var(--tc-btn-prefs-border);
+}
+
+.turbo-cookie-btn-save {
+	background: var(--tc-btn-accept-bg);
+	color: var(--tc-btn-accept-text);
+}
+
+/* ============================================
+   Modal Overlay
+   ============================================ */
+.turbo-cookie-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: calc(var(--tc-z) + 1);
+	backdrop-filter: blur(2px);
+}
+
+/* ============================================
+   Preferences Modal
+   ============================================ */
+.turbo-cookie-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: calc(var(--tc-z) + 2);
+	background: #ffffff;
+	color: #1e293b;
+	border-radius: 12px;
+	max-width: 560px;
+	width: 90%;
+	max-height: 85vh;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 14px;
+}
+
+.turbo-cookie-modal-inner {
+	display: flex;
+	flex-direction: column;
+	max-height: 85vh;
+}
+
+.turbo-cookie-modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 24px;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.turbo-cookie-modal-header h2 {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	color: #1e293b;
+}
+
+.turbo-cookie-modal-close {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 4px;
+	color: #64748b;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.turbo-cookie-modal-close:hover {
+	background: #f1f5f9;
+	color: #1e293b;
+}
+
+.turbo-cookie-modal-body {
+	padding: 24px;
+	overflow-y: auto;
+	flex: 1;
+}
+
+.turbo-cookie-modal-description {
+	margin: 0 0 20px;
+	color: #64748b;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.turbo-cookie-modal-footer {
+	display: flex;
+	gap: 10px;
+	padding: 16px 24px;
+	border-top: 1px solid #e2e8f0;
+	justify-content: flex-end;
+}
+
+/* ============================================
+   Categories in Modal
+   ============================================ */
+.turbo-cookie-categories {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.turbo-cookie-category {
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 16px;
+	transition: border-color 0.2s;
+}
+
+.turbo-cookie-category:hover {
+	border-color: #cbd5e1;
+}
+
+.turbo-cookie-category-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.turbo-cookie-category-info {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.turbo-cookie-category-name {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+	color: #1e293b;
+}
+
+.turbo-cookie-always-on {
+	font-size: 11px;
+	font-weight: 600;
+	background: #dcfce7;
+	color: #166534;
+	padding: 2px 8px;
+	border-radius: 4px;
+}
+
+.turbo-cookie-category-desc {
+	margin: 8px 0 0;
+	font-size: 12px;
+	color: #64748b;
+	line-height: 1.5;
+}
+
+/* ============================================
+   Toggle Switch
+   ============================================ */
+.turbo-cookie-switch {
+	position: relative;
+	display: inline-block;
+	width: 44px;
+	height: 24px;
+}
+
+.turbo-cookie-switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.turbo-cookie-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #cbd5e1;
+	border-radius: 24px;
+	transition: background 0.3s;
+}
+
+.turbo-cookie-slider::before {
+	content: "";
+	position: absolute;
+	height: 18px;
+	width: 18px;
+	left: 3px;
+	bottom: 3px;
+	background: #ffffff;
+	border-radius: 50%;
+	transition: transform 0.3s;
+}
+
+.turbo-cookie-switch input:checked + .turbo-cookie-slider {
+	background: #3b82f6;
+}
+
+.turbo-cookie-switch input:checked + .turbo-cookie-slider::before {
+	transform: translateX(20px);
+}
+
+.turbo-cookie-switch input:focus + .turbo-cookie-slider {
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+.turbo-cookie-anim-slide.turbo-cookie-position-bottom {
+	transform: translateY(100%);
+	transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.turbo-cookie-anim-slide.turbo-cookie-position-bottom.turbo-cookie-visible {
+	transform: translateY(0);
+}
+
+.turbo-cookie-anim-slide.turbo-cookie-position-top {
+	transform: translateY(-100%);
+	transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.turbo-cookie-anim-slide.turbo-cookie-position-top.turbo-cookie-visible {
+	transform: translateY(0);
+}
+
+.turbo-cookie-anim-fade {
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+.turbo-cookie-anim-fade.turbo-cookie-visible {
+	opacity: 1;
+}
+
+.turbo-cookie-anim-slide.turbo-cookie-position-bottom-left,
+.turbo-cookie-anim-slide.turbo-cookie-position-bottom-right {
+	transform: translateY(30px);
+	opacity: 0;
+	transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.turbo-cookie-anim-slide.turbo-cookie-position-bottom-left.turbo-cookie-visible,
+.turbo-cookie-anim-slide.turbo-cookie-position-bottom-right.turbo-cookie-visible {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.turbo-cookie-anim-slide.turbo-cookie-position-center {
+	transform: translate(-50%, -45%);
+	opacity: 0;
+	transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.turbo-cookie-anim-slide.turbo-cookie-position-center.turbo-cookie-visible {
+	transform: translate(-50%, -50%);
+	opacity: 1;
+}
+
+/* Modal animation */
+.turbo-cookie-modal {
+	opacity: 0;
+	transform: translate(-50%, -48%);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.turbo-cookie-modal.turbo-cookie-visible {
+	opacity: 1;
+	transform: translate(-50%, -50%);
+}
+
+.turbo-cookie-modal-overlay {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.turbo-cookie-modal-overlay.turbo-cookie-visible {
+	opacity: 1;
+}
+
+/* ============================================
+   Re-open Button (Shortcode)
+   ============================================ */
+.turbo-cookie-reopen-btn {
+	background: none;
+	border: none;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+	font-size: inherit;
+	padding: 0;
+}
+
+.turbo-cookie-reopen-btn:hover {
+	opacity: 0.7;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+	.turbo-cookie-banner-inner {
+		flex-direction: column;
+		align-items: stretch;
+		padding: 16px;
+	}
+
+	.turbo-cookie-banner-actions {
+		margin-top: 12px;
+	}
+
+	.turbo-cookie-modal {
+		width: 95%;
+		max-height: 90vh;
+	}
+
+	.turbo-cookie-position-bottom-left,
+	.turbo-cookie-position-bottom-right {
+		left: 10px;
+		right: 10px;
+		max-width: none;
+	}
+}
+
+/* ============================================
+   Print: hide banner
+   ============================================ */
+@media print {
+	.turbo-cookie-banner,
+	.turbo-cookie-modal,
+	.turbo-cookie-modal-overlay {
+		display: none !important;
+	}
+}
+
+/* ============================================
+   Embed / Iframe Placeholders
+   ============================================ */
+
+.turbo-cookie-placeholder {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f1f5f9;
+	border: 2px dashed #cbd5e1;
+	border-radius: 8px;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.turbo-cookie-placeholder-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 24px;
+	text-align: center;
+	z-index: 2;
+	position: relative;
+}
+
+.turbo-cookie-placeholder-icon {
+	font-size: 36px;
+	line-height: 1;
+	opacity: 0.6;
+}
+
+.turbo-cookie-placeholder-text {
+	margin: 0;
+	font-size: 14px;
+	color: #475569;
+	line-height: 1.5;
+	max-width: 320px;
+}
+
+.turbo-cookie-placeholder-text strong {
+	color: #1e293b;
+}
+
+.turbo-cookie-placeholder-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 20px;
+	background: var(--tc-btn-accept-bg, #3b82f6);
+	color: var(--tc-btn-accept-text, #ffffff);
+	border: none;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: opacity 0.2s;
+	white-space: nowrap;
+}
+
+.turbo-cookie-placeholder-btn:hover {
+	opacity: 0.88;
+}
+
+.turbo-cookie-placeholder-btn:focus-visible {
+	outline: 3px solid var(--tc-btn-accept-bg, #3b82f6);
+	outline-offset: 2px;
+}
+
+/* Only Essential button */
+.turbo-cookie-btn-essential {
+	background: transparent;
+	color: var(--tc-btn-decline-text, #94a3b8);
+	border: 1px solid var(--tc-btn-decline-border, #475569);
+	border-radius: 6px;
+	padding: 8px 16px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.15s, color 0.15s;
+	white-space: nowrap;
+}
+.turbo-cookie-btn-essential:hover {
+	background: rgba(255,255,255,0.06);
+}
+.turbo-cookie-btn-essential:focus-visible {
+	outline: 2px solid var(--tc-btn-accept-bg, #3b82f6);
+	outline-offset: 2px;
+}

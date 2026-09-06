@@ -1,0 +1,109 @@
+/**
+ * Cookie Policy shortcode styles.
+ *
+ * Enqueued via wp_enqueue_style() by Turbo_Cookie_Policy.
+ *
+ * @package TurboCookie
+ * @since   1.0.1
+ */
+
+.turbo-cookie-policy {
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.turbo-cookie-policy-intro {
+	color: #475569;
+	margin-bottom: 20px;
+}
+
+.turbo-cookie-policy-prefs-btn {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 18px;
+	background: var(--tc-btn-accept-bg, #3b82f6);
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	margin-bottom: 28px;
+}
+
+.turbo-cookie-policy-prefs-btn:hover {
+	opacity: 0.88;
+}
+
+.turbo-cookie-policy-section {
+	margin-bottom: 36px;
+}
+
+.turbo-cookie-policy-cat-title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 8px;
+	color: #1e293b;
+}
+
+.turbo-cookie-policy-required-badge {
+	font-size: 11px;
+	font-weight: 600;
+	background: #dcfce7;
+	color: #166534;
+	padding: 2px 8px;
+	border-radius: 20px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.turbo-cookie-policy-cat-desc {
+	color: #475569;
+	margin-bottom: 12px;
+}
+
+.turbo-cookie-policy-table-wrap {
+	overflow-x: auto;
+}
+
+.turbo-cookie-policy-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.turbo-cookie-policy-table th,
+.turbo-cookie-policy-table td {
+	padding: 10px 14px;
+	text-align: left;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.turbo-cookie-policy-table th {
+	background: #f8fafc;
+	font-weight: 600;
+	color: #334155;
+}
+
+.turbo-cookie-policy-table code {
+	background: #f1f5f9;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #0f172a;
+	word-break: break-all;
+}
+
+.turbo-cookie-policy-empty {
+	color: #94a3b8;
+	font-style: italic;
+}
+
+.turbo-cookie-policy-updated {
+	font-size: 13px;
+	color: #94a3b8;
+	margin-top: 24px;
+}
