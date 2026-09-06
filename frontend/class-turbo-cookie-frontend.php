@@ -141,7 +141,7 @@ class Turbo_Cookie_Frontend {
 
 				<?php if ( ! empty( $settings['show_credit'] ) ) : ?>
 				<div class="turbo-cookie-banner-credit">
-					<a href="https://turbo-addons.com/turbo-cookie/" target="_blank" rel="noopener noreferrer">
+					<a href="https://wp-turbo.com/turbo-cookie/" target="_blank" rel="noopener noreferrer">
 						<?php esc_html_e( 'Powered by Turbo Cookie', 'turbo-cookie-gdpr' ); ?>
 					</a>
 				</div>
