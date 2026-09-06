@@ -67,7 +67,7 @@ class Turbo_Cookie_Admin {
 			'manage_options',
 			'turbo-cookie',
 			array( $this, 'render_dashboard' ),
-			'dashicons-shield',
+			'dashicons-privacy',
 			81
 		);
 
