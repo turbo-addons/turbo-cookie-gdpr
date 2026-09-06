@@ -181,12 +181,24 @@ class Turbo_Cookie_Script_Blocker {
 			return;
 		}
 
-		add_action( 'template_redirect', array( $this, 'start_buffer' ), 1 );
+		// WordPress 6.9+ ships a standardized template enhancement output buffer.
+		// Prefer it so core manages the buffer lifecycle (it is opened and closed
+		// by WordPress itself, so it can never be left open).
+		if ( function_exists( 'wp_should_output_buffer_template_for_enhancement' ) ) {
+			add_filter( 'wp_template_enhancement_output_buffer', array( $this, 'process_buffer' ) );
+		} else {
+			// WP < 6.9 fallback: open a buffer manually and always close it on shutdown.
+			add_action( 'template_redirect', array( $this, 'start_buffer' ), 1 );
+		}
+
 		add_filter( 'script_loader_tag', array( $this, 'filter_script_tag' ), 999, 3 );
 	}
 
 	/**
-	 * Start output buffering.
+	 * Start output buffering (WordPress < 6.9 fallback only).
+	 *
+	 * On WordPress 6.9+ the plugin uses the core template enhancement output
+	 * buffer instead, so this method is not used there.
 	 *
 	 * @since 1.0.0
 	 */

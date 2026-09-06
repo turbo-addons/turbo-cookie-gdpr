@@ -305,28 +305,7 @@ class Turbo_Cookie_Admin {
 				</div>
 			</div>
 
-			<!-- Pro Upsell Card (F4) -->
-			<div class="turbo-cookie-dashboard-pro">
-				<div class="turbo-cookie-dashboard-pro-text">
-					<h3><?php esc_html_e( 'ðŸš€ Turbo Cookie Pro â€” Auto Cookie Scanner', 'turbo-cookie-gdpr' ); ?></h3>
-					<p><?php esc_html_e( 'Upgrade to automatically detect every cookie on your site, get AI-powered categorization, geographic consent rules, and a privacy score.', 'turbo-cookie-gdpr' ); ?></p>
-					<div class="turbo-cookie-dashboard-pro-features">
-						<span><?php esc_html_e( 'Cookie Scanner', 'turbo-cookie-gdpr' ); ?></span>
-						<span><?php esc_html_e( 'AI Categorization', 'turbo-cookie-gdpr' ); ?></span>
-						<span><?php esc_html_e( 'Geo Rules', 'turbo-cookie-gdpr' ); ?></span>
-						<span><?php esc_html_e( 'Privacy Score', 'turbo-cookie-gdpr' ); ?></span>
-						<span><?php esc_html_e( 'Auto Scanning', 'turbo-cookie-gdpr' ); ?></span>
-					</div>
-				</div>
-				<a href="<?php echo esc_url( 'https://wp-turbo.com/turbo-cookie-pro/?utm_source=' . rawurlencode( wp_parse_url( home_url(), PHP_URL_HOST ) ) . '&utm_medium=wordpress_plugin&utm_campaign=dashboard&utm_content=pro_upsell_card' ); ?>"
-				   class="turbo-cookie-pro-btn button"
-				   target="_blank"
-				   rel="noopener">
-					<?php esc_html_e( 'Upgrade to Pro â†’', 'turbo-cookie-gdpr' ); ?>
-				</a>
-			</div>
-
-				<!-- Privacy Policy Notice -->
+			<!-- Privacy Policy Notice -->
 				<div class="turbo-cookie-card turbo-cookie-notice-card">
 					<div class="card-header">
 						<h2><?php esc_html_e( 'Privacy & Legal Notice', 'turbo-cookie-gdpr' ); ?></h2>
@@ -337,8 +316,6 @@ class Turbo_Cookie_Admin {
 						<p><strong><?php esc_html_e( 'For legal advice about your compliance obligations, consult a qualified legal professional.', 'turbo-cookie-gdpr' ); ?></strong></p>
 					</div>
 				</div>
-
-			</div>
 		</div>
 		<?php
 	}
@@ -509,7 +486,7 @@ class Turbo_Cookie_Admin {
 					<div class="turbo-cookie-card turbo-cookie-category-card" data-slug="<?php echo esc_attr( $slug ); ?>">
 						<div class="card-header">
 							<h2>
-								<span class="dashicons dashicons-<?php echo 'essential' === $slug ? 'lock' : 'category'; ?>"></span>
+								<span class="dashicons dashicons-<?php echo esc_attr( 'essential' === $slug ? 'lock' : 'category' ); ?>"></span>
 								<?php echo esc_html( $category['name'] ); ?>
 								<?php if ( ! empty( $category['required'] ) ) : ?>
 									<span class="badge-required"><?php esc_html_e( 'Required', 'turbo-cookie-gdpr' ); ?></span>
@@ -1126,13 +1103,7 @@ class Turbo_Cookie_Admin {
 	}
 
 	// =========================================================================
-	// F4 â€” Pro upsell card (added to render_dashboard via action)
-	// =========================================================================
-	// Note: Pro upsell is injected into dashboard by hooking into
-	// the dashboard output. Defined here so the method is available.
-
-	// =========================================================================
-	// F2 â€” Manage Cookies page
+	// F2 — Manage Cookies page
 	// =========================================================================
 
 	/**
@@ -1149,20 +1120,6 @@ class Turbo_Cookie_Admin {
 			<div class="turbo-cookie-header">
 				<h1><?php esc_html_e( 'Manage Cookies', 'turbo-cookie-gdpr' ); ?></h1>
 				<p><?php esc_html_e( 'Declare the cookies your site uses. These appear in your Cookie Policy page.', 'turbo-cookie-gdpr' ); ?></p>
-			</div>
-
-			<!-- Pro upsell -->
-			<div class="turbo-cookie-card turbo-cookie-pro-card">
-				<div class="card-body turbo-cookie-pro-card-body">
-					<div class="pro-card-text">
-						<strong><?php esc_html_e( 'Want automatic cookie discovery?', 'turbo-cookie-gdpr' ); ?></strong>
-						<?php esc_html_e( 'Turbo Cookie Pro scans your site and detects all cookies automatically â€” including ones from new plugins you install.', 'turbo-cookie-gdpr' ); ?>
-					</div>
-					<a href="<?php echo esc_url( 'https://wp-turbo.com/turbo-cookie-pro/?utm_source=' . rawurlencode( wp_parse_url( home_url(), PHP_URL_HOST ) ) . '&utm_medium=wordpress_plugin&utm_campaign=manage_cookies&utm_content=auto_scan' ); ?>"
-					   class="button turbo-cookie-pro-btn" target="_blank" rel="noopener">
-						<?php esc_html_e( 'Upgrade to Pro â†’', 'turbo-cookie-gdpr' ); ?>
-					</a>
-				</div>
 			</div>
 
 			<!-- Add from Known Service -->
@@ -1236,7 +1193,7 @@ class Turbo_Cookie_Admin {
 						</span>
 					</h2>
 					<a href="<?php echo esc_url( admin_url( 'admin.php?page=turbo-cookie-policy' ) ); ?>" class="button button-secondary">
-						<?php esc_html_e( 'View Cookie Policy â†’', 'turbo-cookie-gdpr' ); ?>
+						<?php esc_html_e( 'View Cookie Policy →', 'turbo-cookie-gdpr' ); ?>
 					</a>
 				</div>
 				<div class="card-body" id="tc-declared-table-wrap">
@@ -1283,7 +1240,7 @@ class Turbo_Cookie_Admin {
 	}
 
 	// =========================================================================
-	// F3 â€” Cookie Policy page render
+	// F3 — Cookie Policy page render
 	// =========================================================================
 
 	/**
@@ -1321,7 +1278,7 @@ class Turbo_Cookie_Admin {
 							<?php esc_html_e( 'Edit Page', 'turbo-cookie-gdpr' ); ?>
 						</a>
 						<a href="<?php echo esc_url( get_permalink( $policy_page_id ) ); ?>" target="_blank" class="button button-secondary" style="margin-left:8px;">
-							<?php esc_html_e( 'View Live â†’', 'turbo-cookie-gdpr' ); ?>
+							<?php esc_html_e( 'View Live →', 'turbo-cookie-gdpr' ); ?>
 						</a>
 					</p>
 					<p class="description">
@@ -1364,14 +1321,14 @@ class Turbo_Cookie_Admin {
 						printf( esc_html__( '%d cookies declared.', 'turbo-cookie-gdpr' ), absint( $declared_count ) );
 					?>
 						<a href="<?php echo esc_url( admin_url( 'admin.php?page=turbo-cookie-manage' ) ); ?>" style="margin-left:8px;">
-							<?php esc_html_e( 'Manage â†’', 'turbo-cookie-gdpr' ); ?>
+							<?php esc_html_e( 'Manage →', 'turbo-cookie-gdpr' ); ?>
 						</a>
 					</p>
 					<?php else : ?>
 					<p>
 						<?php esc_html_e( 'No cookies declared yet.', 'turbo-cookie-gdpr' ); ?>
 						<a href="<?php echo esc_url( admin_url( 'admin.php?page=turbo-cookie-manage' ) ); ?>" style="margin-left:8px;">
-							<?php esc_html_e( 'Add cookies â†’', 'turbo-cookie-gdpr' ); ?>
+							<?php esc_html_e( 'Add cookies →', 'turbo-cookie-gdpr' ); ?>
 						</a>
 					</p>
 					<?php endif; ?>
@@ -1492,7 +1449,7 @@ class Turbo_Cookie_Admin {
 	}
 
 	/**
-	 * Built-in known services â€” purely local, no API.
+	 * Built-in known services — purely local, no API.
 	 *
 	 * @since 1.1.0
 	 * @return array

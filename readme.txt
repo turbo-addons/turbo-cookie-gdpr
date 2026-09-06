@@ -186,7 +186,7 @@ The script blocker recognizes and temporarily blocks scripts, iframes, and embed
 
 Blocked services include (but are not limited to): Google Analytics, Google Tag Manager, Google Maps, Facebook/Meta SDK and Pixel, and 40+ others.
 
-No visitor or site data is transmitted by Turbo Cookie to any of these services. Data is only exchanged between the visitor's browser and the third-party service after the visitor consents and the original script or embed is restored.
+No visitor or site data is transmitted by Turbo Cookie to any of these services. Data is only exchanged between the visitor's browser and the third-party service after the visitor consents and the original script or embed is restored. Because the plugin never contacts these services directly, their data practices apply only after the visitor consents. These services are operated by their respective providers, whose terms and privacy policies apply — for example: Google (privacy policy https://policies.google.com/privacy, terms of service https://policies.google.com/terms) and Meta/Facebook (privacy policy https://www.facebook.com/privacy/policy, terms of service https://www.facebook.com/legal/terms).
 
 == Changelog ==
 
