@@ -1,5 +1,5 @@
 === Turbo Cookie – GDPR Cookie Consent ===
-Contributors: turboaddons
+Contributors: turboaddons, siraji2017, sharifok
 Tags: cookie consent, gdpr, ccpa, cookie banner, privacy
 Requires at least: 6.0
 Tested up to: 7.1
